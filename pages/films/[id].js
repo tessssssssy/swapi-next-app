@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Tooltip from '../../components/Tooltip';
+import styles from "../../styles/FilmPage.module.scss";
 
 const apiEndpoint = "https://swapi.dev/api/";
 
@@ -84,7 +86,7 @@ console.log(film);
         <h3>Characters</h3>
         <p>
         {film.characters.map((character) => (
-            `${character.name}, `
+            <Tooltip character={character}/>
         ))}
         </p>
         <h3>Planets</h3>
