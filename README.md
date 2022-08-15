@@ -49,7 +49,7 @@ Acceptance criteria
 • Favourited films can be unfavourited
 • Film list items can be clicked to show individual film page //
 • Film page should exist on it’s own URL //
-• Film page should show all the information pulled from the SWAPI endpoint for an individual film
+• Film page should show all the information pulled from the SWAPI endpoint for an individual film //
 • The list of characters should display a tooltip when a list item is hovered, containing their name, birth year, eye colour, gender, hair colour and any other information you deem necessary
 • Film page should contain a back to home link //
 • Provide public GitHub repo to source code

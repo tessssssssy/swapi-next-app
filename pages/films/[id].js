@@ -37,9 +37,9 @@ const FilmPage = ({data}) => {
             if (key === category) {
 
                 for (let i = 0; i < value.length; i++) {
-                    if (data.results[i].url === value[i]) {
-                        nestedData.push(data.results[i]);
-                    }
+                    // if (data.results[i].url === value[i]) {
+                    //     nestedData.push(data.results[i]);
+                    // }
                     const res = await fetch(value[i]);
                     const data = await res.json();
                     nestedData.push(data);
