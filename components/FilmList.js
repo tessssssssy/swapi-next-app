@@ -2,22 +2,22 @@ import Film from "./Film";
 import { useState, useEffect } from "react";
 
 const FilmList = ({ films }) => {
-const [favouriteFilms, setFavouriteFilms] = useState([]);
-const [filmList, setFilmList] = useState(films);
+  const [favouriteFilms, setFavouriteFilms] = useState([]);
+  const [filmList, setFilmList] = useState(films);
+ 
   useEffect(() => {
     // get favourites from local storage
     localStorage.clear();
     const favourites = localStorage.getItem("favourites"); // array of eposode_ids
     // set favourites to state
     setFavouriteFilms(favourites ? JSON.parse(favourites) : []);
-    console.log("localstorage", favourites);
   }, []);
 
   useEffect(() => sortFilmList(filmList), [favouriteFilms]);
+  useEffect(() => sortFilmList(films), [films]);
 
   const toggleFavourite = (film) => {
     // check if film is in favourites
-    console.log("toggle favourite", favouriteFilms);
     const isFavourite = favouriteFilms.find(
       (favouriteFilmId) => favouriteFilmId === film.episode_id
     );
@@ -42,8 +42,7 @@ const [filmList, setFilmList] = useState(films);
 
   const sortFilmList = (films) => {
     // check if film is in favourites and sort accordingly
-    const filmsCopy = [...films];
-    const sortedFilms = filmsCopy.sort((a, b) => {
+    const sortedFilms = [...films].sort((a, b) => {
       const isAFavourite = favouriteFilms.find(
         (favouriteFilmId) => favouriteFilmId === a.episode_id
       );
@@ -57,12 +56,10 @@ const [filmList, setFilmList] = useState(films);
       } else {
         return 0;
       }
-    }
-    );
-    console.log(sortedFilms)
+    });
     setFilmList(sortedFilms);
-  }
-  
+  };
+
   return (
     <div>
       {filmList.map((film) => (

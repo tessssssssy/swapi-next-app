@@ -19,19 +19,46 @@ export async function getStaticProps() {
 export default function Home({ data }) {
   const [films, setFilms] = useState(data.results);
 
+  useEffect(() => console.log("films updated in index.js", films), [films]);
+
   const searchFilms = (e) => {
     e.preventDefault();
     const searchTerm = e.target.value;
     if (searchTerm) {
-      const filteredFilms = films.filter((film) => {
+      const filteredFilms = [...films].filter((film) => {
         const searchTermLower = searchTerm.toLowerCase();
         const filmTitleLower = film.title.toLowerCase();
         return filmTitleLower.includes(searchTermLower);
       });
+      console.log("filteredFilms", filteredFilms);
       setFilms(filteredFilms);
     } else {
       setFilms(data.results);
     } 
+  };
+
+  const deepCopy = (input) => {
+    if (
+      typeof input === 'number' ||
+      typeof input === 'string' ||
+      typeof input === 'boolean'
+    )
+      return input;
+    if (Array.isArray(input)) {
+      const newArr = [];
+      for (let i = 0; i < input.length; i++) {
+        newArr.push(deepCopy(input[i]));
+      }
+      return newArr;
+    } else {
+      const newObj = {};
+      for (let key in input) {
+        if (input.hasOwnProperty(key)) {
+          newObj[key] = deepCopy(input[key]);
+        }
+      }
+      return newObj;
+    }
   };
 
   return (
