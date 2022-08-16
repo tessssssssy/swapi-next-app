@@ -19,8 +19,6 @@ export async function getStaticProps() {
 export default function Home({ data }) {
   const [films, setFilms] = useState(data.results);
 
-  useEffect(() => console.log("films updated in index.js", films), [films]);
-
   const searchFilms = (e) => {
     e.preventDefault();
     const searchTerm = e.target.value;

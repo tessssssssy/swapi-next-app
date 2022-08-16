@@ -7,7 +7,6 @@ const FilmList = ({ films }) => {
  
   useEffect(() => {
     // get favourites from local storage
-    localStorage.clear();
     const favourites = localStorage.getItem("favourites"); // array of eposode_ids
     // set favourites to state
     setFavouriteFilms(favourites ? JSON.parse(favourites) : []);
@@ -37,7 +36,6 @@ const FilmList = ({ films }) => {
         JSON.stringify([...favouriteFilms, film.episode_id])
       );
     }
-    console.log(favouriteFilms);
   };
 
   const sortFilmList = (films) => {
