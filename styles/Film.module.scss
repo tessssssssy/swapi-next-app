@@ -1,0 +1,28 @@
+
+.container {
+    border: 1px solid #FFE81F;
+    border-radius: 20px;
+    margin: 20px;
+    width: 40%;
+    padding: 20px;
+    h2 {
+        color: #FFE81F;
+        font-size: 2rem;
+        &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+    .favourite {
+        color: #FFE81F;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        width: 100%;
+    }
+}

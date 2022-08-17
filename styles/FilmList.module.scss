@@ -1,0 +1,15 @@
+
+.filmcontainer {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (max-width: 800px) {
+    .filmcontainer {
+        width: 90%;
+        flex-direction: column;
+    }
+}

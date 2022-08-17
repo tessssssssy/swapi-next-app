@@ -2,7 +2,7 @@ import styles from "../styles/Tooltip.module.scss";
 
 const Tooltip = ({character}) => {
     return (
-        <div className={styles.tooltipopen}>{character.name}, 
+        <div className={styles.tooltipopen}>{character.name},&nbsp;&nbsp;
         <div className={styles.tooltip}>
             <p>Name: {character.name}</p>
             <p>Birth year: {character.birth_year}</p>

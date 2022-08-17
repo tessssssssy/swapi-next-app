@@ -1,5 +1,6 @@
 import Film from "./Film";
 import { useState, useEffect } from "react";
+import styles from "../styles/FilmList.module.scss";
 
 const FilmList = ({ films }) => {
   const [favouriteFilms, setFavouriteFilms] = useState([]);
@@ -38,6 +39,10 @@ const FilmList = ({ films }) => {
     }
   };
 
+  const isFavourite = (film) => {
+    return favouriteFilms.includes(film.episode_id);
+  }
+
   const sortFilmList = (films) => {
     // check if film is in favourites and sort accordingly
     const sortedFilms = [...films].sort((a, b) => {
@@ -59,12 +64,13 @@ const FilmList = ({ films }) => {
   };
 
   return (
-    <div>
+    <div className={styles.filmcontainer}>
       {filmList.map((film) => (
         <Film
           key={film.episode_id}
           film={film}
           toggleFavourite={toggleFavourite}
+          favourite={isFavourite(film)}
         />
       ))}
     </div>

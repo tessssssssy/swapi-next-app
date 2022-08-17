@@ -91,8 +91,9 @@ const FilmPage = ({ data }) => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
       <h2>{data.title}</h2>
+      <div className={styles.content}>
       <p>{data.opening_crawl}</p>
       <p>Director: {data.director}</p>
       <p>Producer: {data.producer}</p>
@@ -100,15 +101,15 @@ const FilmPage = ({ data }) => {
       {typeof film.vehicles === "object" && (
         <div>
           <h3>Characters</h3>
-          <p>
+          <div>
             {film.characters.map((character) => (
               <Tooltip character={character} />
             ))}
-          </p>
+          </div>
           <h3>Planets</h3>
           <p>{film.planets.map((planet) => `${planet.name}, `)}</p>
           <h3>Species</h3>
-          <p>{film.species.map((species) => `${species.name}, `)}</p>
+          <p>{film.species.map((species) => `${species.name}, `)} </p>
           <h3>Starships</h3>
           <p>{film.starships.map((starship) => `${starship.name}, `)}</p>
           <h3>Vehicles</h3>
@@ -116,8 +117,9 @@ const FilmPage = ({ data }) => {
         </div>
       )}
       <Link href="/">
-        <a>Home</a>
+        <a className={styles.home}>Home</a>
       </Link>
+      </div>
     </div>
   );
 };
