@@ -37,7 +37,7 @@ const FilmPage = ({ data }) => {
     if (category === "characters") {
       category = "people";
     }
-    // loop over api and increment page param while next !== null
+    // loop over api and increment page param while next page exists
     let page = 1;
     let next = true;
     while (next) {
@@ -49,10 +49,7 @@ const FilmPage = ({ data }) => {
       page++;
       nestedData.push(...data.results);
     }
-    // const res = await fetch(`${apiEndpoint}${category}/?page=${page}`);
-    // const data = await res.json();
-    // nestedData.push(data);
-    // filter data to only include films that match the current film
+
     return nestedData;
   };
 
@@ -75,7 +72,6 @@ const FilmPage = ({ data }) => {
         nestedCategories.push(key);
       }
     }
-    console.log(nestedCategories);
     return nestedCategories;
   };
 
