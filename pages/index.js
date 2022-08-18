@@ -34,37 +34,13 @@ export default function Home({ data }) {
     } 
   };
 
-  const deepCopy = (input) => {
-    if (
-      typeof input === 'number' ||
-      typeof input === 'string' ||
-      typeof input === 'boolean'
-    )
-      return input;
-    if (Array.isArray(input)) {
-      const newArr = [];
-      for (let i = 0; i < input.length; i++) {
-        newArr.push(deepCopy(input[i]));
-      }
-      return newArr;
-    } else {
-      const newObj = {};
-      for (let key in input) {
-        if (input.hasOwnProperty(key)) {
-          newObj[key] = deepCopy(input[key]);
-        }
-      }
-      return newObj;
-    }
-  };
-
   return (
     <div className={styles.container}>
       <Head>
         <title>Star Wars</title>
         <meta name="description" content="A site about Star Wars" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossOrigin="anonymous" referrerpolicy="no-referrer" />
       </Head>
 
       <main className={styles.main}>

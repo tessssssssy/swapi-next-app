@@ -1,6 +1,6 @@
 import styles from "../styles/Tooltip.module.scss";
 
-const Tooltip = ({character}) => {
+const Tooltip = ({key, character}) => {
     return (
         <div className={styles.tooltipopen}>{character.name},&nbsp;&nbsp;
         <div className={styles.tooltip}>

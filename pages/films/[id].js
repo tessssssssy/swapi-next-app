@@ -89,8 +89,8 @@ const FilmPage = ({ data }) => {
           <div>
             <h3>Characters</h3>
             <div>
-              {data.characters.map((character) => (
-                <Tooltip character={character} />
+              {data.characters.map((character, index) => (
+                <Tooltip key={index} character={character} />
               ))}
             </div>
             <h3>Planets</h3>
