@@ -86,24 +86,22 @@ const FilmPage = ({ data }) => {
         <p>Director: {data.director}</p>
         <p>Producer: {data.producer}</p>
         <p>Release date: {data.release_date}</p>
-        {typeof film.vehicles === "object" && (
           <div>
             <h3>Characters</h3>
             <div>
-              {film.characters.map((character) => (
+              {data.characters.map((character) => (
                 <Tooltip character={character} />
               ))}
             </div>
             <h3>Planets</h3>
-            <p>{film.planets.map((planet) => `${planet.name}, `)}</p>
+            <p>{data.planets.map((planet) => `${planet.name}, `)}</p>
             <h3>Species</h3>
-            <p>{film.species.map((species) => `${species.name}, `)} </p>
+            <p>{data.species.map((species) => `${species.name}, `)} </p>
             <h3>Starships</h3>
-            <p>{film.starships.map((starship) => `${starship.name}, `)}</p>
+            <p>{data.starships.map((starship) => `${starship.name}, `)}</p>
             <h3>Vehicles</h3>
-            <p>{film.vehicles.map((vehicle) => `${vehicle.name}, `)}</p>
+            <p>{data.vehicles.map((vehicle) => `${vehicle.name}, `)}</p>
           </div>
-        )}
         <Link href="/">
           <a className={styles.home}>Home</a>
         </Link>
